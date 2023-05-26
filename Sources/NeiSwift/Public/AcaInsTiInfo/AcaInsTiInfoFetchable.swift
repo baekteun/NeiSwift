@@ -22,13 +22,13 @@ public protocol AcaInsTiInfoFetchable {
         key: String,
         pIndex: Int,
         pSize: Int,
-        ATPT_OFCDC_SC_CODE: String, /// 시도 교육청 코드
-        ADMST_ZONE_NM: String?, /// 행정구역명
-        ACA_ASNUM: String?, /// 학원지정번호
-        ACA_NM: String?, /// 학원명
-        REALM_SC_NM: String?, /// 분야명
-        LE_ORD_NM: String?, /// 교습계열명
-        LE_CRSE_NM: String?, /// 교습과정명
+        ATPT_OFCDC_SC_CODE: String,
+        ADMST_ZONE_NM: String?,
+        ACA_ASNUM: String?,
+        ACA_NM: String?,
+        REALM_SC_NM: String?,
+        LE_ORD_NM: String?,
+        LE_CRSE_NM: String?,
         completion: @escaping (Result<[AcaInsTiInfoResponse], Error>) -> Void
     )
 }
