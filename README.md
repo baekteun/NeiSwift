@@ -65,6 +65,8 @@ let neis = Neis()
 neis.fetchAcaInsTiList(key:...)
 ```
 
+<br>
+
 ### `fetchClassInfo`
 학교명 등의 검색 조건을 선택하여 반정보를 검색할 수 있습니다.
 [Neis Open API](https://open.neis.go.kr/portal/data/service/selectServicePage.do?page=1&rows=10&sortColumn=&sortDirection=&infId=OPEN15320190408174919197546&infSeq=1)에서 API명세서를 볼 수 있습니다.
@@ -73,6 +75,8 @@ neis.fetchAcaInsTiList(key:...)
 let neis = Neis()
 neis.fetchClassInfo(key:...)
 ```
+
+<br>
 
 ### `fetchElsTimeTable`
 초등학교 학년도, 학교, 학기, 학년, 반, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다
@@ -83,6 +87,8 @@ let neis = Neis()
 neis.fetchElsTimeTable(key:...)
 ```
 
+<br>
+
 ### `fetchHisTimeTable`
 고등학교 학년도, 학교, 계열, 학과, 학기, 학년, 강의실, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다.
 [Neis Open API](https://open.neis.go.kr/portal/data/service/selectServicePage.do?page=1&rows=10&sortColumn=&sortDirection=&infId=OPEN18620200826103326268120&infSeq=1)에서 API명세서를 볼 수 있습니다.
@@ -91,6 +97,8 @@ neis.fetchElsTimeTable(key:...)
 let neis = Neis()
 neis.fetchHisTimeTable(key:...)
 ```
+
+<br>
 
 ### `fetchMealInfo`
 학교에서 제공하는 현재년도 급식의 요리명, 원산지정보, 칼로리정보, 영양정보 등의 일자별 현황입니다.
@@ -104,6 +112,8 @@ let neis = Neis()
 neis.fetchMealInfo(key:...)
 ```
 
+<br>
+
 ### `fetchMisTimeTable`
 중학교 학년도, 학교, 학기, 학년, 반, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다.
 
@@ -113,6 +123,8 @@ neis.fetchMealInfo(key:...)
 let neis = Neis()
 neis.fetchMisTimeTable(key:...)
 ```
+
+<br>
 
 ### `fetchSchoolDepartmentList`
 학교별 학과 정보를 조회할 수 있습니다.
@@ -124,6 +136,8 @@ let neis = Neis()
 neis.fetchSchoolDepartmentList(key:...)
 ```
 
+<br>
+
 ### `fetchSchoolList`
 학교 기본정보에 대한 학교명, 소재지, 주소, 전화번호, 홈페이지주소, 남녀공학여부, 주야구분, 개교기념일 등을 확인할 수 있는 현황입니다.
 
@@ -133,6 +147,8 @@ neis.fetchSchoolDepartmentList(key:...)
 let neis = Neis()
 neis.fetchSchoolList(key:...)
 ```
+
+<br>
 
 ### `fetchSchulAflcoinfoList`
 학교명 등의 검색 조건을 선택하여 학교계열정보를 검색할 수 있습니다.
@@ -144,6 +160,8 @@ let neis = Neis()
 neis.fetchSchulAflcoinfoList(key:...)
 ```
 
+<br>
+
 ### `fetchSpsTimeTable`
 특수학교 학년도, 학교, 학기, 학년, 반, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다.
 
@@ -153,6 +171,8 @@ neis.fetchSchulAflcoinfoList(key:...)
 let neis = Neis()
 neis.fetchSpsTimeTable(key:...)
 ```
+
+<br>
 
 ### `fetchTimeTableClassRoom`
 학교명 등의 검색 조건을 선택하여 시간표강의실 정보를 검색 할 수 있습니다.
