@@ -1,6 +1,6 @@
 import Foundation
 
-public struct HisTimeTableRequest: Encodable {
+public struct HisTimeTableRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

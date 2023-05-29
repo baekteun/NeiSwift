@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ClassInfoRequest: Encodable {
+public struct ClassInfoRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

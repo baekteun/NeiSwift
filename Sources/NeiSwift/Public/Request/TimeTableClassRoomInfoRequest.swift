@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TimeTableClassRoomInfoRequest: Encodable {
+public struct TimeTableClassRoomInfoRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

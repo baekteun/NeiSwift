@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SpsTimeTableRequest: Encodable {
+public struct SpsTimeTableRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

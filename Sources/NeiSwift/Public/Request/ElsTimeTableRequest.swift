@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ElsTimeTableRequest: Encodable {
+public struct ElsTimeTableRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

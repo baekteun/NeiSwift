@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MealInfoRequest: Encodable {
+public struct MealInfoRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

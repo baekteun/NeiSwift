@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AcaInsTiInfoRequest: Encodable {
+public struct AcaInsTiInfoRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

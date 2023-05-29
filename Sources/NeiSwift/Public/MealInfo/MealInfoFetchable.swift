@@ -29,7 +29,6 @@ public protocol MealInfoFetchable {
         MLSV_YMD: String?,
         MLSV_FROM_YMD: String?,
         MLSV_TO_YMD: String?,
-        completion: @escaping (Result<[MealInfoResponse
-        ], Error>) -> Void
+        completion: @escaping (Result<[MealInfoResponse], Error>) -> Void
     )
 }

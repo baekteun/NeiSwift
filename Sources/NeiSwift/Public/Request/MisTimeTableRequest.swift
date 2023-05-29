@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MisTimeTableRequest: Encodable {
+public struct MisTimeTableRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int

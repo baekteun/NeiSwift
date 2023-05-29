@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SchoolDepartmentRequest: Encodable {
+public struct SchoolDepartmentRequest: Encodable, DictionaryConvertable {
     public let key: String
     public let pIndex: Int
     public let pSize: Int
