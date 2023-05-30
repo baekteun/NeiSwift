@@ -16,7 +16,7 @@ public extension NeisRequestable where Self: HasURLSession, Self: HasNeisParser,
     ) {
         let requestURL: URL
         do {
-            requestURL = try neisURL(field: key, parameters: parameters)
+            requestURL = try self.buildNeisURL(field: key, parameters: parameters)
         } catch {
             completion(.failure(error))
             return

@@ -1,8 +1,10 @@
 import Combine
 import NeiSwift
 
+extension Neis: CombineNeisProtocol {}
+
 @available(iOS 13.0, tvOS 13.0, macOS 10.5, watchOS 6.0, *)
-public extension NeisProtocol {
+public extension CombineNeisProtocol where Self: NeisProtocol {
     /**
      개설되어있는 학원 및 교습소의 학원명, 휴원일자, 등록상태, 정원, 분야, 계열 및 과정등을 확인할 수 있으며 수강료 공개여부에 따라 수강료 내용을 확인할 수 있습니다.
 

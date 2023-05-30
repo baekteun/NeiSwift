@@ -1,9 +1,8 @@
+import Combine
 import NeiSwift
 
-extension Neis: AsyncNeisProtocol {}
-
 @available(iOS 13.0, tvOS 13.0, macOS 10.5, watchOS 6.0, *)
-public extension AsyncNeisProtocol where Self: NeisProtocol {
+public protocol CombineNeisProtocol {
     /**
      개설되어있는 학원 및 교습소의 학원명, 휴원일자, 등록상태, 정원, 분야, 계열 및 과정등을 확인할 수 있으며 수강료 공개여부에 따라 수강료 내용을 확인할 수 있습니다.
 
@@ -18,16 +17,12 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - REALM_SC_NM: (Optional) 분야명
         - LE_ORD_NM: (Optional) 교습계열명
         - LE_CRSE_NM: (Optional) 교습과정명
-        
-     - Returns: `[AcaInsTiInfoResponse]`
+     
+     - Returns: `AnyPublisher<[AcaInsTiInfoResponse], Error>`
      */
-    func fetchAcaInsTiList(
+    func fetchAcaInsTiListPublisher(
         request: AcaInsTiInfoRequest
-    ) async throws -> [AcaInsTiInfoResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchAcaInsTiList(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[AcaInsTiInfoResponse], Error>
 
     /**
      학교명 등의 검색 조건을 선택하여 반정보를 검색할 수 있습니다.
@@ -45,15 +40,11 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - ORD_SC_NM: (Optional) 계열명
         - DDDEP_NM: (Optional) 학과명
         
-     - Returns: `[ClassInfoResponse]`
+     - Returns: `AnyPublisher<[ClassInfoResponse], Error>`
      */
-    func fetchClassInfo(
+    func fetchClassInfoPublisher(
         request: ClassInfoRequest
-    ) async throws -> [ClassInfoResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchClassInfo(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[ClassInfoResponse], Error>
 
     /**
      초등학교 학년도, 학교, 학기, 학년, 반, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다
@@ -73,15 +64,11 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - TI_FROM_YMD: (Optional) 시간표시작일자
         - TI_TO_YMD: (Optional) 시간표종료일자
         
-     - Returns: `[ElsTimeTableResponse]`
+     - Returns: `AnyPublisher<[ElsTimeTableResponse], Error>`
      */
-    func fetchElsTimeTable(
+    func fetchElsTimeTablePublisher(
         request: ElsTimeTableRequest
-    ) async throws -> [ElsTimeTableResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchElsTimeTable(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[ElsTimeTableResponse], Error>
 
     /**
      고등학교 학년도, 학교, 계열, 학과, 학기, 학년, 강의실, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다.
@@ -100,16 +87,12 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - PERIO: (Optional) 교시
         - TI_FROM_YMD: (Optional) 시간표시작일자
         - TI_TO_YMD: (Optional) 시간표종료일자
-     
-     - Returns: `[HisTimeTableResponse]`
+        
+     - Returns: `AnyPublisher<[HisTimeTableResponse], Error>`
      */
-    func fetchHisTimeTable(
+    func fetchHisTimeTablePublisher(
         request: HisTimeTableRequest
-    ) async throws -> [HisTimeTableResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchHisTimeTable(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[HisTimeTableResponse], Error>
 
     /**
      학교에서 제공하는 현재년도 급식의 요리명, 원산지정보, 칼로리정보, 영양정보 등의 일자별 현황입니다.
@@ -126,16 +109,12 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - MLSV_YMD: (Optional) 급식일자
         - MLSV_FROM_YMD: (Optional) 급식일자(시작일자)
         - MLSV_TO_YMD: (Optional) 급식일자(종료일자)
-     
-     - Returns: `[MealInfoResponse]`
+        
+     - Returns: `AnyPublisher<[MealInfoResponse], Error>`
      */
-    func fetchMealInfo(
+    func fetchMealInfoPublisher(
         request: MealInfoRequest
-    ) async throws -> [MealInfoResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchMealInfo(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[MealInfoResponse], Error>
 
     /**
      중학교 학년도, 학교, 학기, 학년, 반, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다.
@@ -155,15 +134,11 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - TI_FROM_YMD: (Optional) 시간표시작일자
         - TI_TO_YMD: (Optional) 시간표종료일자
         
-     - Returns: `[MisTimeTableResponse]`
+     - Returns: `AnyPublisher<[MisTimeTableResponse], Error>`
      */
-    func fetchMisTimeTable(
+    func fetchMisTimeTablePublisher(
         request: MisTimeTableRequest
-    ) async throws -> [MisTimeTableResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchMisTimeTable(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[MisTimeTableResponse], Error>
 
     /**
      학교별 학과 정보를 조회할 수 있습니다.
@@ -177,15 +152,11 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - DGHT_CRSE_SC_NM: (Optional) 주야과정명
         - ORD_SC_NM: (Optional) 계열명
         
-     - Returns: `[SchoolDepartmentResponse]`
+     - Returns: `AnyPublisher<[SchoolDepartmentResponse], Error>`
      */
-    func fetchSchoolDepartmentList(
+    func fetchSchoolDepartmentListPublisher(
         request: SchoolDepartmentRequest
-    ) async throws -> [SchoolDepartmentResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchSchoolDepartmentList(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[SchoolDepartmentResponse], Error>
 
     /**
      학교 기본정보에 대한 학교명, 소재지, 주소, 전화번호, 홈페이지주소, 남녀공학여부, 주야구분, 개교기념일 등을 확인할 수 있는 현황입니다.
@@ -200,16 +171,12 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - SCHUL_KND_SC_NM: (Optional) 학교 종류명
         - LCTN_SC_NM: (Optional) 소재지명
         - FOND_SC_NM: (Optional) 설립명
-     
-     - Returns: `[SchoolInfoResponse]`
+        
+     - Returns: `AnyPublisher<[SchoolInfoResponse], Error>`
      */
-    func fetchSchoolList(
+    func fetchSchoolListPublisher(
         request: SchoolInfoRequest
-    ) async throws -> [SchoolInfoResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchSchoolList(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[SchoolInfoResponse], Error>
 
     /**
      학교명 등의 검색 조건을 선택하여 학교계열정보를 검색할 수 있습니다.
@@ -221,16 +188,12 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - ATPT_OFCDC_SC_CODE: 시도교육청코드
         - SD_SCHUL_CODE: (Optional) 표준학교코드
         - DGHT_CRSE_SC_NM: (Optional) 주야과정명
-     
-     - Returns: `[SchulAflcoinfoResponse]`
+        
+     - Returns: `AnyPublisher<[SchulAflcoinfoResponse], Error>`
      */
-    func fetchSchulAflcoinfoList(
+    func fetchSchulAflcoinfoListPublisher(
         request: SchulAflcoinfoRequest
-    ) async throws -> [SchulAflcoinfoResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchSchulAflcoinfoList(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[SchulAflcoinfoResponse], Error>
 
     /**
      특수학교 학년도, 학교, 학기, 학년, 반, 교시별 시간표 수업내용을 확인할 수 있는 현황입니다.
@@ -251,16 +214,12 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - PERIO: (Optional) 교시
         - TI_FROM_YMD: (Optional) 시간표시작일자
         - TI_TO_YMD: (Optional) 시간표종료일자
-     
-     - Returns: `[SpsTimeTableResponse]`
+        
+     - Returns: `AnyPublisher<[SpsTimeTableResponse], Error>`
      */
     func fetchSpsTimeTable(
         request: SpsTimeTableRequest
-    ) async throws -> [SpsTimeTableResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchSpsTimeTable(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[SpsTimeTableResponse], Error>
 
     /**
      학교명 등의 검색 조건을 선택하여 시간표강의실 정보를 검색 할 수 있습니다.
@@ -279,13 +238,9 @@ public extension AsyncNeisProtocol where Self: NeisProtocol {
         - ORD_SC_NM: (Optional) 계열명
         - DDDEP_NM: (Optional) 학과명
         
-     - Returns: `[TimeTableClassRoomInfoResponse]`
+     - Returns: `AnyPublisher<[TimeTableClassRoomInfoResponse], Error>`
      */
     func fetchTimeTableClassRoom(
         request: TimeTableClassRoomInfoRequest
-    ) async throws -> [TimeTableClassRoomInfoResponse] {
-        try await withCheckedThrowingContinuation { continuation in
-            self.fetchTimeTableClassRoom(request: request, completion: continuation.resume(with:))
-        }
-    }
+    ) -> AnyPublisher<[TimeTableClassRoomInfoResponse], Error>
 }

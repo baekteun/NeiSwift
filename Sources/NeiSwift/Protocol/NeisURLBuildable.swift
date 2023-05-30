@@ -1,11 +1,11 @@
 import Foundation
 
 public protocol NeisURLBuildable {
-    func neisURL(field: String, parameters: [URLQueryItem]) throws -> URL
+    func buildNeisURL(field: String, parameters: [URLQueryItem]) throws -> URL
 }
 
 extension NeisURLBuildable {
-    public func neisURL(field: String, parameters: [URLQueryItem]) throws -> URL {
+    public func buildNeisURL(field: String, parameters: [URLQueryItem]) throws -> URL {
         var urlComponents = URLComponents(string: "https://open.neis.go.kr/hub/\(field)")
         urlComponents?.queryItems = parameters
         guard
