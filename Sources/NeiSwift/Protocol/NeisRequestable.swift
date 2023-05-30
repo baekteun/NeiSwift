@@ -8,18 +8,17 @@ public protocol NeisRequestable {
     )
 }
 
-public extension NeisRequestable where Self: HasURLSession, Self: HasNeisParser {
+public extension NeisRequestable where Self: HasURLSession, Self: HasNeisParser, Self: NeisURLBuildable {
     func neisRequest<T: Decodable>(
         key: String,
         parameters: [URLQueryItem],
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        var urlComponents = URLComponents(string: "\(NeisConstants.baseNeisURL)/\(key)")
-        urlComponents?.queryItems = parameters
-        guard
-            let requestURL = urlComponents?.url
-        else {
-            completion(.failure(NeisError.invalidNeisURL))
+        let requestURL: URL
+        do {
+            requestURL = try neisURL(field: key, parameters: parameters)
+        } catch {
+            completion(.failure(error))
             return
         }
 
