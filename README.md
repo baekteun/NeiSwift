@@ -46,7 +46,7 @@ Package.swift에 dependencies에 `NeiSwift`를 추가해주세요.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/baekteun/NeiSwift.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/baekteun/NeiSwift.git", .upToNextMajor(from: "2.0.0"))
 ]
 ```
 
@@ -62,7 +62,7 @@ dependencies: [
 
 ```swift
 let neis = Neis()
-neis.fetchAcaInsTiList(key:...)
+neis.fetchAcaInsTiList(request: .init(key:...))
 ```
 
 <br>
@@ -73,7 +73,7 @@ neis.fetchAcaInsTiList(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchClassInfo(key:...)
+neis.fetchClassInfo(request: .init(key:...))
 ```
 
 <br>
@@ -84,7 +84,7 @@ neis.fetchClassInfo(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchElsTimeTable(key:...)
+neis.fetchElsTimeTable(request: .init(key:...))
 ```
 
 <br>
@@ -95,7 +95,7 @@ neis.fetchElsTimeTable(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchHisTimeTable(key:...)
+neis.fetchHisTimeTable(request: .init(key:...))
 ```
 
 <br>
@@ -109,7 +109,7 @@ neis.fetchHisTimeTable(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchMealInfo(key:...)
+neis.fetchMealInfo(request: .init(key:...))
 ```
 
 <br>
@@ -121,7 +121,7 @@ neis.fetchMealInfo(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchMisTimeTable(key:...)
+neis.fetchMisTimeTable(request: .init(key:...))
 ```
 
 <br>
@@ -133,7 +133,7 @@ neis.fetchMisTimeTable(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchSchoolDepartmentList(key:...)
+neis.fetchSchoolDepartmentList(request: .init(key:...))
 ```
 
 <br>
@@ -145,7 +145,7 @@ neis.fetchSchoolDepartmentList(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchSchoolList(key:...)
+neis.fetchSchoolList(request: .init(key:...))
 ```
 
 <br>
@@ -157,7 +157,7 @@ neis.fetchSchoolList(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchSchulAflcoinfoList(key:...)
+neis.fetchSchulAflcoinfoList(request: .init(key:...))
 ```
 
 <br>
@@ -169,7 +169,7 @@ neis.fetchSchulAflcoinfoList(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchSpsTimeTable(key:...)
+neis.fetchSpsTimeTable(request: .init(key:...))
 ```
 
 <br>
@@ -181,5 +181,5 @@ neis.fetchSpsTimeTable(key:...)
 
 ```swift
 let neis = Neis()
-neis.fetchTimeTableClassRoom(key:...)
+neis.fetchTimeTableClassRoom(request: .init(key:...))
 ```
