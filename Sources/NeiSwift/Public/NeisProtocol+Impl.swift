@@ -92,9 +92,13 @@ public extension NeisProtocol where Self: NeisRequestable {
 
 private extension Dictionary where Key == String, Value == Any {
     func buildParameters() -> [URLQueryItem] {
-        self.reduce(into: [URLQueryItem]()) { partialResult, dict in
+        var parameters = self.reduce(into: [URLQueryItem]()) { partialResult, dict in
             guard let value = dict.value as? String else { return }
             partialResult.append(URLQueryItem(name: dict.key, value: value))
         }
+        parameters.append(
+            URLQueryItem(name: "Type", value: "json")
+        )
+        return parameters
     }
 }

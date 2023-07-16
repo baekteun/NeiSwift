@@ -16,7 +16,7 @@ public struct MealInfoResponse: Codable {
     /// 급식일자
     public let MLSV_YMD: String
     /// 급식인원수
-    public let MLSV_FGR: String
+    public let MLSV_FGR: Int
     /// 요리명
     public let DDISH_NM: String
     /// 원산지정보

@@ -30,7 +30,7 @@ public extension NeisRequestable where Self: HasURLSession, Self: HasNeisParser,
 
             if let data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] ?? [:]
+                    let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any] ?? [:]
                     let response: T = try neisParser.parse(json: json, key: "\(key)")
                     completion(.success(response))
                 } catch {
