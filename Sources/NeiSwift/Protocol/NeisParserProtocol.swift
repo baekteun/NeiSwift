@@ -17,7 +17,7 @@ public extension NeisParserProtocol {
             throw NeisError.noData
         }
 
-        let responseData = try JSONSerialization.data(withJSONObject: rowJson)
+        let responseData = try JSONSerialization.data(withJSONObject: rowJson, options: [.fragmentsAllowed])
         return try JSONDecoder().decode(T.self, from: responseData)
     }
 
